@@ -53,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
   leftArrow.addEventListener('click', goBack);
 
   function goBack() {
+    if(index === 0) return;
+    
     index--;
     label.innerHTML = questions[index].question;
     leftArrow.className = index ? 'fas fa-arrow-left' : 'fas fa-user';
