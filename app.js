@@ -53,12 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
   leftArrow.addEventListener('click', goBack);
 
   function goBack() {
+    input.focus();
     if(index === 0) return;
     
     index--;
     label.innerHTML = questions[index].question;
     leftArrow.className = index ? 'fas fa-arrow-left' : 'fas fa-user';
-    input.focus();
     form.classList.remove('error');
     input.type = questions[index].type || 'text';
     progressFillWidth -= progressFillPercent;
