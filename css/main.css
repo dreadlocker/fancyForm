@@ -32,17 +32,23 @@ h1 {
   font-family: Pacifico, cursive;
   text-align: center; }
 
-.formStyle {
+.formStyle, #formComplete {
   width: 25rem;
   height: 6rem;
   background-color: white;
   border-radius: 5px 5px 0 0;
   box-shadow: 9px 6px 30px #245682;
   display: flex;
+  position: relative; }
+
+.formStyle {
   flex-direction: column;
   justify-content: space-between;
-  padding: 0.5rem 0.5rem 1.3rem 0.5rem;
-  position: relative; }
+  padding: 0.5rem 0.5rem 1.3rem 0.5rem; }
+
+#formComplete {
+  justify-content: center;
+  align-items: center; }
 
 #row2 {
   width: 100%;
@@ -102,16 +108,6 @@ h1 {
   left: 2.5rem;
   font-size: 0.6rem;
   color: #245682; }
-
-#formComplete {
-  width: 25rem;
-  height: 6rem;
-  background-color: white;
-  border-radius: 5px 5px 0 0;
-  box-shadow: 9px 6px 30px #245682;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
 
 #progressBar {
   width: 25rem;
