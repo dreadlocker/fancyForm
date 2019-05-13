@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Pacifico|Roboto");
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-size: 20px; }
+
+html {
+  margin: 0; }
+
+body {
+  padding: 1% 1% 0 1%; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  background-color: #428bca;
+  font-family: 'Roboto', 'sans-serif'; }
+
+#wrapper {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%; }
+
+h1 {
+  color: white;
+  font-size: 4rem;
+  font-family: Pacifico, cursive;
+  text-align: center; }
+
+.formStyle {
+  width: 25rem;
+  height: 6rem;
+  background-color: white;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 9px 6px 30px #245682;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem 0.5rem 1.3rem 0.5rem;
+  position: relative; }
+
+#row2 {
+  width: 100%;
+  height: 2.1rem;
+  display: flex;
+  justify-content: space-between; }
+
+#row2Inp {
+  width: 82%;
+  height: 33%;
+  border-width: 0 0 0.3rem 0;
+  border-color: #245682;
+  position: absolute;
+  bottom: 21%;
+  z-index: 1;
+  background-color: transparent; }
+  #row2Inp:focus {
+    outline-width: 0px; }
+
+.fa-arrow-right, .fa-arrow-left {
+  color: #245682;
+  font-size: 2rem; }
+
+.fa-arrow-right {
+  position: relative;
+  top: 0.9rem;
+  text-align: right; }
+
+#leftArrow {
+  color: #a7a7a7;
+  font-size: 1.5rem; }
+
+.row3LabelStyle {
+  position: absolute;
+  top: 53%;
+  left: 0.5rem;
+  transition: all 300ms ease-in-out; }
+
+.error {
+  animation: errorAnim 400ms ease-in-out; }
+  .error #row2Inp {
+    border-color: #ff2d26; }
+  .error .fa-arrow-right {
+    color: #ff2d26; }
+
+@keyframes errorAnim {
+  0%, 100% {
+    left: 0%; }
+  25%, 75% {
+    left: 1%; }
+  50% {
+    left: -1%; } }
+
+#row2Inp:valid + #row3Label {
+  position: absolute;
+  top: 19.8%;
+  left: 2.5rem;
+  font-size: 0.6rem;
+  color: #245682; }
+
+#formComplete {
+  width: 25rem;
+  height: 6rem;
+  background-color: white;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 9px 6px 30px #245682;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+@media only screen and (max-width: 830px) {
+  #form {
+    width: 100%; }
+  #formComplete {
+    width: 100%; }
+  h1 {
+    margin: 0;
+    padding: 0 0 1% 0;
+    font-size: 2rem; } }
