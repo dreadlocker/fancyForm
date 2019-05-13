@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('row2Inp');
   const label = document.getElementById('row3Label');
   const formCompleted = document.getElementById('formComplete');
+  const progressFill = document.getElementById('progressFill');
   let index = 0;
+  let progressFillPercent = 25 / 4;
+  let progressFillWidth = 0;
 
   const questions = [
     { question: 'Enter Your First Name' },
@@ -34,6 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    progressFillWidth += progressFillPercent;
+    progressFill.style.width = progressFillWidth + 'rem';
+
     if (index === questions.length - 1) return form.outerHTML = '<div id="formComplete">You will receive an email soon!</div>';
 
     form.classList.remove('error');
@@ -53,5 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     input.focus();
     form.classList.remove('error');
     input.type = questions[index].type || 'text';
+    progressFillWidth -= progressFillPercent;
+    progressFill.style.width = progressFillWidth + 'rem';
   }
 })
