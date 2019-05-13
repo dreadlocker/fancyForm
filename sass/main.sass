@@ -56,6 +56,13 @@ h1
 #formComplete
   justify-content: center
   align-items: center
+  animation: hideAnim 500ms
+
+@keyframes hideAnim
+  0%
+    opacity: 0
+  100%
+    opacity: 1
   
 #row2
   width: 100%
@@ -125,6 +132,10 @@ h1
   background-color: $primaryLight
   width: 0rem
   height: 100%
+
+.hideMe
+  opacity: 0
+  transition: all 500ms
 
 @media only screen and (max-width: 830px)
   #form

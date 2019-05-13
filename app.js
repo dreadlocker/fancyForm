@@ -6,23 +6,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const label = document.getElementById('row3Label');
   const formCompleted = document.getElementById('formComplete');
   const progressFill = document.getElementById('progressFill');
-  let index = 0;
-  let progressFillPercent = 25 / 4;
-  let progressFillWidth = 0;
-
   const questions = [
     { question: 'Enter Your First Name' },
     { question: 'Enter Your Last Name' },
     { question: 'Enter Your Email', pattern: /\S+@\S+.\S+/ },
     { question: 'Create A Password', type: 'password' },
   ];
+  let index = 0;
+  let progressFillPercent = 25 / questions.length; // 25 === $formWidth - 25rem
+  let progressFillWidth = 0;
+
   leftArrow.className = index ? 'fas fa-arrow-left' : 'fas fa-user'
 
   label.innerHTML = questions[index].question;
 
-  rightArrow.addEventListener('click', validate)
+  rightArrow.addEventListener('click', nextStep)
 
-  function validate() {
+  function nextStep() {
     if (input.value !== undefined) input.value = input.value.trim();
 
     input.focus();
@@ -40,7 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
     progressFillWidth += progressFillPercent;
     progressFill.style.width = progressFillWidth + 'rem';
 
-    if (index === questions.length - 1) return form.outerHTML = '<div id="formComplete">You will receive an email soon!</div>';
+    if (index === questions.length - 1) {
+      form.classList.add('hideMe');
+      progressFill.classList.add('hideMe');
+
+      setTimeout(() => {
+        form.outerHTML = '<div id="formComplete">You will receive an email soon!</div>';
+        progressFill.classList.remove('hideMe');
+      }, 700);
+      return;
+    }
 
     form.classList.remove('error');
     input.value = '';
@@ -54,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function goBack() {
     input.focus();
-    if(index === 0) return;
-    
+    if (index === 0) return;
+
     index--;
     label.innerHTML = questions[index].question;
     leftArrow.className = index ? 'fas fa-arrow-left' : 'fas fa-user';
@@ -64,4 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     progressFillWidth -= progressFillPercent;
     progressFill.style.width = progressFillWidth + 'rem';
   }
-})
+
+  document.addEventListener('keyup', (e) => (e.keyCode === 13) ? nextStep() : null);
+});
